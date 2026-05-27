@@ -1,9 +1,241 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Happy Monthsary Mahal Ko</title>
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&family=Poppins:wght@300;400&display=swap" rel="stylesheet">
+    <style>
+        /* --- CORE STYLES --- */
+        body {
+            margin: 0;
+            padding: 0;
+            background: #fce4ec; /* Soft Pink */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            font-family: 'Poppins', sans-serif;
+            overflow: hidden;
+            position: relative;
+        }
 
-<title>For My Mahal ❤️</title>
+        /* --- FLOATING HEARTS BACKGROUND --- */
+        .background-hearts {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 0;
+        }
+        
+        .heart {
+            position: absolute;
+            color: #ff4757;
+            font-size: 20px;
+            opacity: 0;
+            animation: floatUp 4s infinite linear;
+        }
 
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&family=Great+Vibes
+        @keyframes floatUp {
+            0% { transform: translateY(100vh) scale(0.5); opacity: 0; }
+            20% { opacity: 0.8; }
+            100% { transform: translateY(-10vh) scale(1.2); opacity: 0; }
+        }
+
+        /* --- THE ENVELOPE FOLDER --- */
+        .envelope-container {
+            position: relative;
+            width: 320px;
+            height: 240px;
+            cursor: pointer;
+            z-index: 10;
+            transition: transform 0.5s ease;
+            margin-bottom: 120px; /* Space for the opening letter */
+        }
+
+        .envelope-container:hover {
+            transform: scale(1.02);
+        }
+
+        /* The paper inside */
+        .letter {
+            position: absolute;
+            top: -230px; /* Hidden initially upwards */
+            left: 10px;
+            width: 300px;
+            height: 400px; /* Adjusted height for long text */
+            background: white;
+            padding: 40px 20px;
+            box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+            border-radius: 5px;
+            transition: top 1s cubic-bezier(0.3, 1, 0.2, 1);
+            z-index: 1;
+            box-sizing: border-box;
+            overflow-y: auto; /* Scrollable if text is too long */
+        }
+
+        /* The Back of Envelope */
+        .envelope-back {
+            position: absolute;
+            bottom: 0;
+            width: 100%;
+            height: 100%;
+            background: #fff0f3;
+            border-radius: 10px;
+            border: 2px solid #ff8da1;
+        }
+
+        /* The Flap (Triangle that closes it) */
+        .envelope-flap {
+            position: absolute;
+            top: 0;
+            width: 0; 
+            height: 0; 
+            border-left: 160px solid transparent;
+            border-right: 160px solid transparent;
+            border-top: 110px solid #ffcdd2; /* Light Pink Flap */
+            transform-origin: top;
+            transition: transform 0.6s ease 0.4s;
+            z-index: 5;
+        }
+
+        /* --- OPEN STATE STYLES --- */
+        .envelope-container.opened .letter {
+            top: -20px; /* Slides down */
+        }
+
+        .envelope-container.opened .envelope-flap {
+            transform: rotateX(180deg); /* Flap opens back */
+        }
+
+        /* --- TEXT CONTENT STYLING --- */
+        .content-text {
+            display: none; /* Hidden until opened */
+            color: #4a4a4a;
+            text-align: justify;
+            line-height: 1.6;
+        }
+        
+        .content-text h1 {
+            font-family: 'Dancing Script', cursive;
+            color: #ff4757;
+            text-align: center;
+            font-size: 2rem;
+            margin-bottom: 10px;
+            margin-top: 0;
+        }
+
+        .content-text p {
+            margin-bottom: 15px;
+            font-size: 0.95rem;
+        }
+
+        .click-hint {
+            position: absolute;
+            bottom: -60px;
+            width: 100%;
+            text-align: center;
+            color: #d6336c;
+            font-weight: bold;
+            animation: pulse 1.5s infinite;
+            pointer-events: none;
+        }
+
+        @keyframes pulse {
+            0% { opacity: 0.5; }
+            50% { opacity: 1; }
+            100% { opacity: 0.5; }
+        }
+
+    </style>
+</head>
+<body>
+
+    <!-- Animated Background Hearts -->
+    <div class="background-hearts" id="heartsContainer"></div>
+
+    <!-- The Envelope Interactive Area -->
+    <div class="envelope-container" onclick="openLetter()">
+        <!-- The Flap -->
+        <div class="envelope-flap"></div>
+        
+        <!-- The Base -->
+        <div class="envelope-back"></div>
+
+        <!-- The Letter Content (Inside the envelope visually) -->
+        <div class="letter">
+            <div class="content-text">
+                <h1>Happy monthsary mahal koo ❤️</h1>
+                
+                <p>Hi mahal, just wanna say thank you for everything you’ve done for me/us 🥰, sana matupad lahat ng gusto nating mang yari and alwayss prayy to papa j for us mahal ❤️ and sana mag kita na us para matulog mga wishh natin yk gagala kakain tas uuwi ng parang mag asawa 💕</p>
+                
+                <p>and pag bubutihin ko mag aral for our future plans and gusto ko bilhan ka ng maayos na pamamahay and oo alam kong imposible payon kasi wala pa nmn tayo sa simula pero promise mahal gagawin ko yun para sayo/satin, wala namang imposible sa mga gusto nating mang yare kapag pinag dadasal natin kay papa j yan right</p>
+
+                <p>so i hope na sana mang yare, and thank you mahal dahil sa pag mamahal na binigay mo for me and sana mag tagal payan hanggang sa pag tanda natin, thank you rin sa mga efforts mo sa kadaldalan mo which is the most i like to you cuz ur so kulitt and cutieee 🥰🥰</p>
+
+                <p>lalo na kapag kinukwentohan moko HAHHAHA angg cutee cutee, tas kapag ginugulo mo si natskies ko angg kulitt kulitt nag papaiyak HAHAHAH</p>
+
+                <p>and sana tanggapin ako ni tita and tito and buong family mo na mapasayo kaya lagi ako magadasal para jan mahal. gusto na kita makita mahal ko, gusto kita i hug, libre, watch movies, ang anything we want</p>
+
+                <p>and i’ll buy you a lot of foods para di ka gutom gutomm, and tsake mga gamitt like make ups ganunnn or kahit wag na kasi ur already beautiful namn na</p>
+
+                <p>kaya mahal sana matuloy yung pag kikita natin 🥺 gusto ko kasi mang yari yung mga gusto natin sa isat isa.</p>
+
+                <p style="text-align: center; font-size: 1.2rem; font-family: 'Dancing Script', cursive; margin-top: 20px;">
+                    I LOVEE YOUU ALWAYSS MAHALL KOO 💕💕🥰<br>
+                    mahal na mahal kitaa mwuahh mwuahh 💕🥰😘😘
+                </p>
+            </div>
+        </div>
+
+        <div class="click-hint" id="clickHint">Click the heart to open 💕</div>
+    </div>
+
+    <script>
+        // Function to open the envelope
+        function openLetter() {
+            const envelope = document.querySelector('.envelope-container');
+            const contentText = document.querySelector('.content-text');
+            const clickHint = document.getElementById('clickHint');
+            
+            envelope.classList.add('opened');
+            
+            // Hide the click hint
+            clickHint.style.display = 'none';
+
+            // Reveal text with a slight delay for effect
+            setTimeout(() => {
+                contentText.style.display = 'block';
+                // Scroll to top of letter logic
+                const letterDiv = document.querySelector('.letter');
+                letterDiv.scrollTop = 0;
+            }, 600);
+        }
+
+        // Automatic Generation of Floating Hearts
+        function createHearts() {
+            const container = document.getElementById('heartsContainer');
+            const heartCount = 15;
+
+            for (let i = 0; i < heartCount; i++) {
+                const heart = document.createElement('div');
+                heart.classList.add('heart');
+                heart.innerHTML = '❤';
+                
+                // Random positions
+                heart.style.left = Math.random() * 100 + 'vw';
+                heart.style.animationDuration = (Math.random() * 2 + 3) + 's'; // 3-5s
+                heart.style.animationDelay = Math.random() * 5 + 's';
+
+                container.appendChild(heart);
+            }
+        }
+
+        // Initialize
+        createHearts();
+    </script>
+</body>
+</html>
