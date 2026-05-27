@@ -10,7 +10,7 @@
         body {
             margin: 0;
             padding: 0;
-            background: #fce4ec; /* Soft Pink */
+            background: #e3f2fd; /* Soft Blue */
             display: flex;
             justify-content: center;
             align-items: center;
@@ -66,7 +66,7 @@
             top: -230px; /* Hidden initially upwards */
             left: 10px;
             width: 300px;
-            height: 400px; /* Adjusted height for long text */
+            height: 400px;
             background: white;
             padding: 40px 20px;
             box-shadow: 0 10px 20px rgba(0,0,0,0.1);
@@ -74,21 +74,21 @@
             transition: top 1s cubic-bezier(0.3, 1, 0.2, 1);
             z-index: 1;
             box-sizing: border-box;
-            overflow-y: auto; /* Scrollable if text is too long */
+            overflow-y: auto;
         }
 
-        /* The Back of Envelope */
+        /* The Back of Envelope - BLUE */
         .envelope-back {
             position: absolute;
             bottom: 0;
             width: 100%;
             height: 100%;
-            background: #fff0f3;
+            background: #bbdefb; /* Light Blue */
             border-radius: 10px;
-            border: 2px solid #ff8da1;
+            border: 2px solid #64b5f6;
         }
 
-        /* The Flap (Triangle that closes it) */
+        /* The Flap (Triangle that closes it) - BLUE */
         .envelope-flap {
             position: absolute;
             top: 0;
@@ -96,7 +96,7 @@
             height: 0; 
             border-left: 160px solid transparent;
             border-right: 160px solid transparent;
-            border-top: 110px solid #ffcdd2; /* Light Pink Flap */
+            border-top: 110px solid #90caf9; /* Blue Flap */
             transform-origin: top;
             transition: transform 0.6s ease 0.4s;
             z-index: 5;
@@ -104,24 +104,24 @@
 
         /* --- OPEN STATE STYLES --- */
         .envelope-container.opened .letter {
-            top: -20px; /* Slides down */
+            top: -20px;
         }
 
         .envelope-container.opened .envelope-flap {
-            transform: rotateX(180deg); /* Flap opens back */
+            transform: rotateX(180deg);
         }
 
         /* --- TEXT CONTENT STYLING --- */
         .content-text {
-            display: none; /* Hidden until opened */
-            color: #4a4a4a;
+            display: none;
+            color: #2c3e50;
             text-align: justify;
             line-height: 1.6;
         }
         
         .content-text h1 {
             font-family: 'Dancing Script', cursive;
-            color: #ff4757;
+            color: #1976d2;
             text-align: center;
             font-size: 2rem;
             margin-bottom: 10px;
@@ -138,7 +138,7 @@
             bottom: -60px;
             width: 100%;
             text-align: center;
-            color: #d6336c;
+            color: #0d47a1;
             font-weight: bold;
             animation: pulse 1.5s infinite;
             pointer-events: none;
@@ -165,12 +165,12 @@
         <!-- The Base -->
         <div class="envelope-back"></div>
 
-        <!-- The Letter Content (Inside the envelope visually) -->
+        <!-- The Letter Content -->
         <div class="letter">
             <div class="content-text">
                 <h1>Happy monthsary mahal koo ❤️</h1>
                 
-                <p>Hi mahal, just wanna say thank you for everything you’ve done for me/us 🥰, sana matupad lahat ng gusto nating mang yari and alwayss prayy to papa j for us mahal ❤️ and sana mag kita na us para matulog mga wishh natin yk gagala kakain tas uuwi ng parang mag asawa 💕</p>
+                <p>Hi mahal, just wanna say thank you for everything you've done for me/us 🥰, sana matupad lahat ng gusto nating mang yari and alwayss prayy to papa j for us mahal ❤️ and sana mag kita na us para matuloy mga wishh natin yk gagala kakain tas uuwi ng parang mag asawa 💕</p>
                 
                 <p>and pag bubutihin ko mag aral for our future plans and gusto ko bilhan ka ng maayos na pamamahay and oo alam kong imposible payon kasi wala pa nmn tayo sa simula pero promise mahal gagawin ko yun para sayo/satin, wala namang imposible sa mga gusto nating mang yare kapag pinag dadasal natin kay papa j yan right</p>
 
@@ -180,7 +180,7 @@
 
                 <p>and sana tanggapin ako ni tita and tito and buong family mo na mapasayo kaya lagi ako magadasal para jan mahal. gusto na kita makita mahal ko, gusto kita i hug, libre, watch movies, ang anything we want</p>
 
-                <p>and i’ll buy you a lot of foods para di ka gutom gutomm, and tsake mga gamitt like make ups ganunnn or kahit wag na kasi ur already beautiful namn na</p>
+                <p>and i'll buy you a lot of foods para di ka gutom gutomm, and tsake mga gamitt like make ups ganunnn or kahit wag na kasi ur already beautiful namn na</p>
 
                 <p>kaya mahal sana matuloy yung pag kikita natin 🥺 gusto ko kasi mang yari yung mga gusto natin sa isat isa.</p>
 
@@ -209,7 +209,6 @@
             // Reveal text with a slight delay for effect
             setTimeout(() => {
                 contentText.style.display = 'block';
-                // Scroll to top of letter logic
                 const letterDiv = document.querySelector('.letter');
                 letterDiv.scrollTop = 0;
             }, 600);
@@ -227,7 +226,7 @@
                 
                 // Random positions
                 heart.style.left = Math.random() * 100 + 'vw';
-                heart.style.animationDuration = (Math.random() * 2 + 3) + 's'; // 3-5s
+                heart.style.animationDuration = (Math.random() * 2 + 3) + 's';
                 heart.style.animationDelay = Math.random() * 5 + 's';
 
                 container.appendChild(heart);
