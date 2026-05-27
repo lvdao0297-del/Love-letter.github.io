@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Happy Monthsary Mahal Ko</title>
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    
+    <style>
+        /* --- CSS STYLES --- */
+        :root {
+            --bg-start: #0F2027;
+            --bg-mid: #203A43;
+            --bg-end: #2C5364;
+            --glass: rgba(255, 255, 255, 0.1);
+            --text-color: #E0F7FA;
+            --accent: #F48FB1;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: linear-gradient(to bottom, var(--bg-start), var(--bg-mid), var(--bg-end));
+            height: 100vh;
+            overflow: hidden; /* Prevents scrollbars for the background */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: var(--text-color);
+        }
+
+        /* Floating Particles Background */
+        .background-hearts {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 0;
+            pointer-events: none;
+        }
+
+        /* The Main Card */
+        .card {
+            position: relative;
+            z-index: 10;
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            border-radius: 20px;
+            padding: 40px;
+            width: 90%;
+            max-width: 600px;
+            max-height: 85vh;
+            overflow-y: auto;
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.5);
+            animation: fadeIn 1.5s ease-out;
+        }
+
+        /* Header Styles */
+        h1 {
+            font-family: 'Dancing Script', cursive;
+            font-size: 3rem;
+            text-align: center;
+            color: #fff;
+            margin-bottom: 10px;
+            text-shadow: 0 0 10px rgba(255,255,255,0.5);
+        }
+
+        h2 {
+            font-size: 1rem;
+            text-align: center;
+            letter-spacing: 2px;
+            color: #81D4FA;
+            margin-bottom: 30px;
+            text-transform: uppercase;
+        }
+
+        /* Letter Body - Typewriter Cursor */
+        #letter-content {
+            font-size: 1.1rem;
+            line-height: 1.8;
+            white-space: pre-wrap; /* Preserves spacing */
+        }
+
+        .cursor {
+            display: inline-block;
+            width: 2px;
+            height: 1.2em;
+            background-color: var(--accent);
+            animation: blink 1s infinite;
+            vertical-align: text-bottom;
+        }
+
+        /* Signature */
+        .signature {
+            margin-top: 30px;
+            font-family: 'Dancing Script', cursive;
+            font-size: 2rem;
+            text-align: right;
+            color: #F48FB1;
+        }
+
+        /* Animations */
+        @keyframes blink {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0; }
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        @keyframes floatUp {
+            0% { transform: translateY(100vh) scale(0.5); opacity: 0; }
+            20% { opacity: 0.8; }
+            100% { transform: translateY(-10vh) scale(1.2); opacity: 0; }
+        }
+
+        /* Heart Particle Style */
+        .heart {
+            position: absolute;
+            color: rgba(255, 255, 255, 0.6);
+            font-size: 20px;
+            animation: floatUp linear forwards;
+            bottom: -50px;
+        }
+
+        /* Scrollbar styling */
+        .card::-webkit-scrollbar {
+            width: 8px;
+        }
+        .card::-webkit-scrollbar-track {
+            background: rgba(255,255,255,0.05);
+        }
+        .card::-webkit-scrollbar-thumb {
+            background: rgba(255,255,255,0.2);
+            border-radius: 4px;
+        }
+        
+        /* Mobile adjustment */
+        @media (max-width: 600px) {
+            h1 { font-size: 2.5rem; }
+            .card { padding: 20px; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Background Container for Animations -->
+    <div class="background-hearts" id="bg-hearts"></div>
+
+    <div class="card">
+        <h1>Happy Monthsary!</h1>
+        <h2>Mahal Ko Uyyy ❤️</h2>
+        
+        <!-- The text will be injected here by JS -->
+        <div id="letter-content"><span class="cursor"></span></div>
+
+        <div class="signature">
+            - Mahal na Mahal Kita <span style="color: #fff;">💕</span>
+        </div>
+    </div>
+
+    <script>
+        // --- JAVASCRIPT LOGIC ---
+
+        const letterText = `Hi mahal, just wanna say thank you for everything you've done for me/us 🥰, sana matupad lahat ng gusto nating mang yari and alwayss prayy to papa j for us mahal ❤️ and sana mag kita na us para matulog mga wishh natin yk gagala kakain tas uuwi ng parang mag asawa 💕, and pag bubutihin ko mag aral for our future plans and gusto ko bilhan ka ng maayos na pamamahay and oo alam kong imposible payon kasi wala pa nmn tayo sa simula pero promise mahal gagawin ko yun para sayo/satin, wala namang imposible sa mga gusto nating mang yare kapag pinag dadasal natin kay papa j yan right, so i hope na sana mang yare, and thank you mahal dahil sa pag mamahal na binigay mo for me and sana mag tagal payan hanggang sa pag tanda natin, thank you rin sa mga efforts mo sa kadaldalan mo which is the most i like to you cuz ur so kulitt and cutieee 🥰🥰, lalo na kapag kinukwentohan moko HAHHAHA angg cutee cutee, tas kapag ginugulo mo si natskies ko angg kulitt kulitt nag papaiyak HAHAHAH, and sana tanggapin ako ni tita and tito and buong family mo na mapasayo kaya lagi ako magadasal para jan mahal. gusto na kita makita mahal ko, gusto kita i hug, libre, watch movies, ang anything we want, and i’ll buy you a lot of foods para di ka gutom gutomm, and tsaka mga gamitt like make ups ganunnn or kahit wag na kasi ur already beautiful namn na, kaya mahal sana matuloy yung pag kikita natin 🥺 gusto ko kasi mang yari yung mga gusto natin sa isat isa. ILOVEEYOUUALWAYSS MAHALL KOO 💕💕🥰 mahal na mahal kitaa mwuahh mwuahh 💕🥰😘😘`;
+
+        const textContainer = document.getElementById('letter-content');
+        const cursor = document.querySelector('.cursor');
+        
+        let i = 0;
+        
+        // Typewriter Effect Function
+        function typeWriter() {
+            if (i < letterText.length) {
+                // Insert text before the cursor
+                const textNode = document.createTextNode(letterText.charAt(i));
+                textContainer.insertBefore(textNode, cursor);
+                i++;
+                
+                // Random typing speed for realism (between 30ms and 80ms)
+                setTimeout(typeWriter, Math.random() * 50 + 30);
+            }
+        }
+
+        // Start typing after a short delay
+        setTimeout(typeWriter, 1000);
+
+
+        // Floating Hearts Animation Logic
+        function createHeart() {
+            const heart = document.createElement('div');
+            heart.classList.add('heart');
+            heart.innerHTML = '❤️';
+            
+            // Randomize position
+            heart.style.left = Math.random() * 100 + 'vw';
+            
+            // Randomize size
+            const size = Math.random() * 20 + 10 + 'px';
+            heart.style.fontSize = size;
+            
+            // Randomize animation duration
+            const duration = Math.random() * 3 + 2 + 's';
+            heart.style.animationDuration = duration;
+            
+            document.getElementById('bg-hearts').appendChild(heart);
+            
+            // Remove heart after animation ends to save memory
+            setTimeout(() => {
+                heart.remove();
+            }, parseFloat(duration) * 1000);
+        }
+
+        // Spawn hearts every 500ms
+        setInterval(createHeart, 800);
+
+    </script>
+</body>
+</html>
